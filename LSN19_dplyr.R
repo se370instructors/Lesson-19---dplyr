@@ -72,7 +72,7 @@ library(readr)
 
 
 #-ok, now start a new procedure
-#figure out the top 5 destination airports have the most canceled flights (i.e., where's the worst place to try to fly into?)
+#figure out the top 5 destination airports that have the most canceled flights (i.e., where's the worst place to try to fly into?)
 
   
 #subset the original flights data by the top 5 DEST cities
