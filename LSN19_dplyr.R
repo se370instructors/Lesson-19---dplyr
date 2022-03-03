@@ -6,7 +6,7 @@ library(dplyr)
 library(readr)
 
 #The basics: Verbs are dplyr commands for manipulating data. Command structure (for all dplyr verbs): 
-###first argument is a data frame, return value is a data frame, nothing is modifid in place 
+###first argument is a data frame, return value is a data frame, nothing is modified in place 
 
 #1.Pick observations by their values ( filter() ).
 #2.Reorder the rows ( arrange() ).
