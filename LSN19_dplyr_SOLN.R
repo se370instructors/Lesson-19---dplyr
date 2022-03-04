@@ -86,7 +86,12 @@ delays <- flights %>%
 
 #-your turn - do all of these steps in the same procedure:
 #subset to only flights traveling from ALB to BWI
-
+sub <- flights %>%
+filter(ORIGIN %in% c('ALB','BWI')) %>%
+select(ORIGIN, DEST, DEP_TIME) %>%
+mutate(ORIGIN = factor(ORIGIN), DEST = factor(DEST)) %>%
+arrange(-DEP_TIME) %>%
+rename_with(tolower)
 
 #add a line to select only the origin, dest, and departure time variables
 
@@ -105,11 +110,19 @@ delays <- flights %>%
 
   
 #subset the original flights data by the top 5 DEST cities
-
+dest_airports <- flights %>%
+group_by(DEST) %>%
+summarize(can = sum(CANCELLED)) %>%
+arrange(-can) %>%
+slice(1:5)
 
 #find the top 10 origin cities that these flights are coming from
 
-
+flights %>%
+filter(DEST %in% dest_airports$DEST) %>%
+count(ORIGIN) %>%
+arrange(-n) %>%
+slice(1:10)
 
 
 
